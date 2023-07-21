@@ -1,5 +1,3 @@
-'use strict';
-
 const modal_main = document.getElementById('modal_main');
 const modal_success = document.getElementById('modal_success');
 
