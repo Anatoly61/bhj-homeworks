@@ -1,19 +1,15 @@
-let modalMain = document.querySelector('#modal_main');
-let modalClose = document.querySelectorAll('div.modal__close');
-let modalShow = document.querySelector('.show-success');
-let modalSuccess = document.querySelector('#modal_success');
-modalMain.className = 'modal modal_active';
+'use strict';
 
-modalClose.onclick = function () {
-    modalMain.className = 'modal'
-}
+const modal_main = document.getElementById('modal_main');
+const modal_success = document.getElementById('modal_success');
 
-modalShow.onclick = function () {
-    modalMain.className = 'modal';
-    modalSuccess.className = 'modal modal_active';
-}
+const modal_close = document.getElementsByClassName('modal__close');
+const show_success = document.getElementsByClassName('show-success');
+modal_main.className = 'modal modal_active';
 
-modalClose[1].onclick = function (){
-    modalSuccess.className = 'modal';
-    modalMain.className = 'modal';
-}
+for (let i = 0; i < modal_close.length; i++)
+  modal_close[i].onclick = () => {
+    modal_close[i].closest('.modal').className = 'modal';
+    if (modal_close[i] === show_success[0])
+      modal_success.className = 'modal modal_active';
+  }
